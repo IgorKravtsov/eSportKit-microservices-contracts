@@ -1,1 +1,2 @@
-export * from './account';
+export * from './contracts';
+export * from './interfaces';
