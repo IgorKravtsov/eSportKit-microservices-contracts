@@ -10,6 +10,6 @@ export namespace AccountGetInfo {
   }
 
   export class Response {
-    user: IUser;
+    user: Omit<IUser, 'passwordHash'>;
   }
 }
