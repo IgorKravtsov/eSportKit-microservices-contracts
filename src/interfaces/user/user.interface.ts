@@ -12,12 +12,14 @@ export enum LanguageType {
 
 export interface IUser {
   _id?: string;
-  role: UserRole;
+  email: string;
   passwordHash: string;
   name: string;
   lastName: string;
+  middleName?: string;
+  role: UserRole;
   organizations: string[];
-  lang: LanguageType;
+  lang?: LanguageType;
   level?: string;
   selectedOrganization?: string;
   // abonements: string[]
