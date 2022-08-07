@@ -6,6 +6,9 @@ export namespace GymAdd {
 
   export class Request {
     @IsString()
+    createdBy: Id;
+
+    @IsString()
     title: string;
 
     @IsString()
