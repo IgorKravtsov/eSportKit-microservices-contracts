@@ -1,5 +1,6 @@
 import { ArrayMinSize, IsArray, IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { LanguageType } from '../../../enums';
+import { ITrainerInfo } from '../../../interfaces';
 
 export namespace AccountRegister {
   export const topic = 'account.register.command';
@@ -41,9 +42,10 @@ export namespace AccountRegister {
     @IsOptional()
     selectedOrganization?: string;
 
-    @IsString({ each: true })
+    @IsArray()
+    // @IsString({ each: true })
     @IsOptional()
-    trainers?: string[];
+    trainers?: ITrainerInfo[];
   }
 
   export class Response {}
