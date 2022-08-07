@@ -9,5 +9,8 @@ export namespace AccountChangedEmailEvent {
 
     @IsString()
     email: string;
+
+    @IsString()
+    varificationCode: string;
   }
 }
