@@ -7,8 +7,7 @@
     "sourceMap": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "target": "es2017",
-    "baseUrl": "src"
+    "target": "es2017"
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]

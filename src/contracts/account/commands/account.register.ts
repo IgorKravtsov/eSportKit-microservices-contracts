@@ -1,5 +1,5 @@
 import { ArrayMinSize, IsArray, IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator';
-import { LanguageType } from '../../interfaces';
+import { LanguageType } from '../../../enums';
 
 export namespace AccountRegister {
   export const topic = 'account.register.command';

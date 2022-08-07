@@ -1,14 +1,4 @@
-export enum UserRole {
-  Learner = 'learner',
-  Trainer = 'trainer',
-  Admin = 'admin'
-}
-
-export enum LanguageType {
-  Russian = 'rus',
-  Ukrainian = 'ukr',
-  English = 'eng'
-}
+import { LanguageType, UserRole } from '../../enums';
 
 export interface IUser {
   _id?: string;
