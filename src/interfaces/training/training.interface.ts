@@ -8,4 +8,5 @@ export interface ITraining {
   gymId: Id;
   learners?: Id[];
   trainers?: Id[];
+  createdBy: Id;
 }
