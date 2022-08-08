@@ -25,6 +25,9 @@ export namespace TrainingCreate {
     @IsOptional()
     @IsArray()
     trainers?: Id[];
+
+    @IsString()
+    createdBy: string;
   }
 
   export class Response {
