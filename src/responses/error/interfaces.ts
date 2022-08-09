@@ -20,7 +20,7 @@ export interface IRMQErr {
   message: string;
   type: string;
   code: ErrorCodes;
-  data: any;
-  service: string;
-  host: string;
+  data?: any;
+  service?: string;
+  host?: string;
 }
