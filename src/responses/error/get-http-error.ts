@@ -1,10 +1,20 @@
 import { ErrorCodes } from './enums';
-import { MicroserviceException } from './microservice-error';
 import { IErrorResponse, ILogger } from './interfaces';
 
-export const getHttpError = (err: MicroserviceException, logger: ILogger): IErrorResponse => {
-  if (err.devMessage) {
-    logger.debug ? logger.debug(err.devMessage) : logger.error(err.devMessage);
+interface Err {
+  message: string;
+  type: string;
+  code: ErrorCodes;
+  data: any;
+  service: string;
+  host: string;
+}
+
+export const getHttpError = (err: Err, logger: ILogger): IErrorResponse => {
+  // Means that it is RMQEror
+  if (err.type) {
+    const devMessage = `[${err.host}]/[${err.service}]: ${err.message} (code: ${err.code})`;
+    logger.debug ? logger.debug(devMessage) : logger.error(devMessage);
     return { body: { message: err.message, statusCode: err.code }, code: err.code };
   } else {
     logger.error(err.message);
