@@ -1,19 +1,10 @@
 import { ErrorCodes } from './enums';
-import { IErrorResponse, ILogger } from './interfaces';
+import { IRMQErr, IErrorResponse, ILogger } from './interfaces';
 
-interface Err {
-  message: string;
-  type: string;
-  code: ErrorCodes;
-  data: any;
-  service: string;
-  host: string;
-}
-
-export const getHttpError = (err: Err, logger: ILogger): IErrorResponse => {
-  // Means that it is RMQEror
+export const getHttpError = (err: IRMQErr, logger: ILogger): IErrorResponse => {
+  // Means that it is RMQError
   if (err.type) {
-    const devMessage = `[${err.host}]/[${err.service}]: ${err.message} (code: ${err.code})`;
+    const devMessage = `[${err.host}/${err.service}]: ${err.message} (code: ${err.code})`;
     logger.debug ? logger.debug(devMessage) : logger.error(devMessage);
     return { body: { message: err.message, statusCode: err.code }, code: err.code };
   } else {

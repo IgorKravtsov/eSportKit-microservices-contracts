@@ -1,6 +1,9 @@
 import { ErrorCodes } from './enums';
 import { IErrorResponse, ILogger } from './interfaces';
 
+/*
+ * @deprecated
+ */
 export class MicroserviceException extends Error {
   public devMessage: string;
   public code: ErrorCodes;

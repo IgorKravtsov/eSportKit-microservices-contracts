@@ -15,3 +15,12 @@ export interface ILogger {
   debug?(message: any, ...optionalParams: any[]): any;
   verbose?(message: any, ...optionalParams: any[]): any;
 }
+
+export interface IRMQErr {
+  message: string;
+  type: string;
+  code: ErrorCodes;
+  data: any;
+  service: string;
+  host: string;
+}
