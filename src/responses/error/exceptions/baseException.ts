@@ -3,7 +3,7 @@ import { IRMQErr } from '../interfaces';
 
 export const EXCEPTION_TYPE = 'ME-RMQ-Exception';
 
-export class BaseExeption implements IRMQErr {
+export class BaseExeption extends Error implements IRMQErr {
   message: string;
   type: string;
   code: ErrorCodes;
@@ -11,5 +11,7 @@ export class BaseExeption implements IRMQErr {
   service?: string | undefined;
   host?: string | undefined;
 
-  constructor(message: string, type: any, code: ErrorCodes, data?: any, service?: string, host?: string) {}
+  constructor(message: string, type: any, code: ErrorCodes, data?: any, service?: string, host?: string) {
+    super(message);
+  }
 }
