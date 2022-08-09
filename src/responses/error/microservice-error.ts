@@ -1,9 +1,9 @@
-import { ErrorCodes } from './enums';
+import { ErrorCode } from './enums';
 import { IErrorResponse, ILogger, IRMQErr } from './interfaces';
 
 export class MicroserviceException extends Error {
   public devMessage: string;
-  public code: ErrorCodes;
+  public code: ErrorCode;
   public message: string;
   // public data?: any;
   // public service?: string;
@@ -31,8 +31,8 @@ export class MicroserviceException extends Error {
     } else {
       logger?.error(err.message);
       return {
-        body: { message: 'Something went wrong', statusCode: ErrorCodes.InternalError },
-        code: ErrorCodes.InternalError
+        body: { message: 'Something went wrong', statusCode: ErrorCode.InternalError },
+        code: ErrorCode.InternalError
       };
     }
   }

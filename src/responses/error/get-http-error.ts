@@ -1,7 +1,7 @@
-import { ErrorCodes } from './enums';
+import { ErrorCode } from './enums';
 import { IRMQErr, IErrorResponse, ILogger } from './interfaces';
 
-export const getHttpError = (err: IRMQErr, logger: ILogger): IErrorResponse => {
+export const getHttpError = (err: IRMQErr, logger: ILogger = console): IErrorResponse => {
   // Means that it is RMQError
   if (err.type) {
     const devMessage = `[${err.host}/${err.service}]: ${err.message} (code: ${err.code})`;
@@ -10,8 +10,8 @@ export const getHttpError = (err: IRMQErr, logger: ILogger): IErrorResponse => {
   } else {
     logger.error(err.message);
     return {
-      body: { message: 'Something went wrong', statusCode: ErrorCodes.InternalError },
-      code: ErrorCodes.InternalError
+      body: { message: 'Something went wrong', statusCode: ErrorCode.InternalError },
+      code: ErrorCode.InternalError
     };
   }
 };

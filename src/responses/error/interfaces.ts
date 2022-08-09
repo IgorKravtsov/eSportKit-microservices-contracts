@@ -1,11 +1,11 @@
-import { ErrorCodes } from './enums';
+import { ErrorCode } from './enums';
 
 export interface IErrorResponse {
   body: {
     message: string;
-    statusCode: ErrorCodes;
+    statusCode: ErrorCode;
   };
-  code: ErrorCodes;
+  code: ErrorCode;
 }
 
 export interface ILogger {
@@ -19,7 +19,7 @@ export interface ILogger {
 export interface IRMQErr {
   message: string;
   type: string;
-  code: ErrorCodes;
+  code: ErrorCode;
   data?: any;
   service?: string;
   host?: string;
