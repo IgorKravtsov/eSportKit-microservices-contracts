@@ -4,9 +4,7 @@ import { IErrorResponse, ILogger } from './interfaces';
 
 export const getHttpError = (err: Error, logger: ILogger): IErrorResponse => {
   if (err instanceof MicroserviceException) {
-    if (logger.debug) {
-      logger.debug(err.devMessage);
-    }
+    logger.debug ? logger.debug(err.devMessage) : logger.error(err.devMessage);
     return { body: { message: err.message, statusCode: err.code }, code: err.code };
   } else {
     logger.error(err.message);
