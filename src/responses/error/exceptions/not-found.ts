@@ -1,8 +1,9 @@
 import { ErrorCodes } from '../enums';
-import { EXCEPTION_TYPE, MicroserviceException } from '../microservice-error';
+import {} from '../microservice-error';
+import { BaseExeption, EXCEPTION_TYPE } from './baseException';
 
-export class NotFoundME extends MicroserviceException {
-  constructor(message: string, data?: any) {
-    super(message, EXCEPTION_TYPE, ErrorCodes.NotFound, data);
+export class NotFoundME extends BaseExeption {
+  constructor(message: string, data?: any, service?: string, host?: string) {
+    super(message, EXCEPTION_TYPE, ErrorCodes.NotFound, data, service, host);
   }
 }
