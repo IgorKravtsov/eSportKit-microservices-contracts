@@ -1,8 +1,7 @@
 import { UserRole } from '../../enums';
 import { Id } from '../id.interface';
 
-export interface IJWTPayload {
-  id: Id;
+export interface RoleInfo {
+  organizationId: Id;
   roles: UserRole[];
-  selectedOrganizationId: Id;
 }

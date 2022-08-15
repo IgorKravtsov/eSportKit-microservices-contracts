@@ -6,3 +6,4 @@ export * from './user';
 export * from './gym';
 export * from './training';
 export * from './organization';
+export * from './region';

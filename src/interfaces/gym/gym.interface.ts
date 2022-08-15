@@ -1,12 +1,15 @@
 import { Id } from '../id.interface';
-import { ITrainerInfo } from '../user';
+import { IGymOwner } from './gym-owner.interface';
 
 export interface IGym {
   _id?: Id;
+
   title: string;
   address: string;
-  img?: string;
+  imgUrl?: string;
+
   createdAt: string;
   createdBy: string;
-  trainers: ITrainerInfo[];
+
+  owners: IGymOwner[];
 }
