@@ -24,7 +24,7 @@ export interface IUser {
   registeredAt: Date;
   lastVisitedAt: Date;
   verification: IUserVerification;
-  session?: ISession[];
+  session?: ISession;
   abonements?: Id[];
   gyms?: Id[];
   currentRegion?: Id;
