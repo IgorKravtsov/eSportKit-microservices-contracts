@@ -1,5 +1,6 @@
 import { LanguageType } from '../../enums';
 import { Id } from '../id.interface';
+import { IAbonementInfo } from './user.abonement-info.interface';
 import { ILearnerInfo } from './user.learner-info.interface';
 import { RoleInfo } from './user.role-info.interface';
 import { ISession } from './user.session.interface';
@@ -25,7 +26,8 @@ export interface IUser {
   lastVisitedAt: Date;
   verification: IUserVerification;
   session?: ISession;
-  abonements?: Id[];
+  abonements?: IAbonementInfo[];
   gyms?: Id[];
   currentRegion?: Id;
+  avatarImg?: string;
 }

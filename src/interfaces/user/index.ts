@@ -5,3 +5,4 @@ export * from './user.verification.interface';
 export * from './user.session.interface';
 export * from './user.role-info.interface';
 export * from './user.learner-info.interface';
+export * from './user.abonement-info.interface';

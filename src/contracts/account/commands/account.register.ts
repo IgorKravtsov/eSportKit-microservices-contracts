@@ -1,6 +1,6 @@
-import { ArrayMinSize, IsArray, IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { ArrayMinSize, IsArray, IsDate, IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { LanguageType } from '../../../enums';
-import { ITrainerInfo } from '../../../interfaces';
+import { Id, ITrainerInfo } from '../../../interfaces';
 
 export namespace AccountRegister {
   export const topic = 'account.register.command';
@@ -22,6 +22,10 @@ export namespace AccountRegister {
     @IsEmail()
     email: string;
 
+    @IsString()
+    @IsOptional()
+    bio?: string;
+
     @IsNotEmpty()
     @IsString()
     password: string;
@@ -29,23 +33,29 @@ export namespace AccountRegister {
     @IsArray()
     @ArrayMinSize(1)
     @IsString({ each: true })
-    organizations: string[];
+    organizations: Id[];
 
     @IsEnum(LanguageType)
-    lang: LanguageType;
+    prefferedLang: LanguageType;
 
     @IsString()
-    @IsOptional()
-    level?: string;
+    selectedOrganizationId: Id;
 
-    @IsString()
-    @IsOptional()
-    selectedOrganization?: string;
+    @IsDate()
+    registeredAt: Date;
 
     @IsArray()
     // @IsString({ each: true })
     @IsOptional()
     trainers?: ITrainerInfo[];
+
+    @IsString()
+    @IsOptional()
+    currentRegion?: Id;
+
+    @IsString()
+    @IsOptional()
+    avatarImg?: string;
   }
 
   export class Response {}
